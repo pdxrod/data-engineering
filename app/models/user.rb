@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
   mount_uploader :uploader, FileUploader # Carrierwave
 
   def calculate!
-
     url = File.join( Rails.root, 'public', uploader.url )
     contents = File.read( url )
 
-    contents.each_line do |line|
+    contents.each_line.with_index do |line, index|
+      next if index == 0
       next if line.strip == ''
       data = line.split( "\t" )
       data.map( &:chomp! )
@@ -20,7 +20,12 @@ class User < ActiveRecord::Base
                           purchase_count: data[3], merchant_address: data[4],	merchant_name: data[5])
       import.save!
     end
+  end
 
+  def User.total_amount_gross_revenue
+    total = 0.0
+    Import.all.each { |row| total += row.item_price * row.purchase_count }
+    total
   end
 
 end

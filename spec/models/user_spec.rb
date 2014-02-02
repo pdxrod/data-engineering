@@ -30,6 +30,7 @@ describe User do
     @user.uploader = File.open(file_path)
     @user.save!
     @user.calculate!
+    expect( Import.count ).to eq(4)
 
     row = Import.last
     expect( row.purchaser_name ).to eq("Snake Plissken")
@@ -38,6 +39,8 @@ describe User do
     expect( row.purchase_count ).to eq(4)
     expect( row.merchant_address ).to eq("123 Fake St")
     expect( row.merchant_name ).to eq("Sneaker Store Emporium")
+
+    expect( User.total_amount_gross_revenue ).to eq( 95.0 )
 
   end
 end
