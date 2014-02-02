@@ -1,28 +1,13 @@
-== README
+This app runs on any version of Unix (tested on Mac OS/X Lion 10.7.5 and Ubuntu Linux 12.0)
+It depends on Ruby 2.0.x and Rails 4.0.x. The best way to install these is to follow the 
+instructions at RVM: http://rvm.io/. You also need Git: 'sudo apt-get install git' for Linux 
+or http://git-scm.com/download/mac for Mac. Then:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+$ git clone https://github.com/pdxrod/data-engineering 
+$ cd data-engineering
+$ bundle install
+$ rspec
+$ rails s &
 
-Things you may want to cover:
+...and point your browser at http://localhost:3000 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
