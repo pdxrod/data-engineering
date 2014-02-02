@@ -33,9 +33,9 @@ describe User do
 
     row = Import.last
     expect( row.purchaser_name ).to eq("Snake Plissken")
-    expect( row.description ).to eq("$20 Sneakers for $5")
+    expect( row.item_description ).to eq("$20 Sneakers for $5")
     expect( row.item_price ).to eq(5.0)
-    expect( row.purchase_coint ).to eq(4)
+    expect( row.purchase_count ).to eq(4)
     expect( row.merchant_address ).to eq("123 Fake St")
     expect( row.merchant_name ).to eq("Sneaker Store Emporium")
 
