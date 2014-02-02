@@ -1,17 +1,13 @@
 source 'https://rubygems.org'
+
 gem 'rails', '4.0.2'
 gem 'mysql2', '~> 0.3.12'
 gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'jquery-rails', '~> 3.1.0'
+gem 'turbolinks', '~> 2.2.1'
 gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
