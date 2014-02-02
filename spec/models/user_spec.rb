@@ -25,7 +25,7 @@ describe User do
     expect( Import.count ).to eq(0)
     @user.uploader = File.open(file_path)
     @user.save!
-    @user.calculate!
+    @user.import!
     expect( Import.count ).to eq(4)
 
     row = Import.last

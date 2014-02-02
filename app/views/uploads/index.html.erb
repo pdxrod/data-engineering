@@ -1,7 +1,13 @@
 <%= form_for @user, :html => {:multipart => true} do |f| %>
     <p>
-      <label>Find a file and upload it</label>
+      <label>Find a file by clicking on 'Browse', then hit 'Save'</label>
       <%= f.file_field :uploader %>
       <%= f.hidden_field :uploader_cache %>
+      <br/><br/>
+      <%= f.submit 'Save' %>
+      <br/><br/>
+      <% if User.total_amount_gross_revenue %>
+        Total: $<%= User.total_amount_gross_revenue %>
+      <% end %>
     </p>
 <% end %>

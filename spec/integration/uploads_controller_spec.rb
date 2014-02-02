@@ -8,11 +8,7 @@ describe UploadsController do
 
   it "should go straignt to the uploads page" do
     visit '/'
-    expect( response.body ).to match( /find a file and upload it/mi )
-  end
-
-  it "should successfully upload a file" do
-
+    expect( response.body ).to match( /Find a file by clicking on 'Browse', then hit 'Save'/m )
   end
 
 end

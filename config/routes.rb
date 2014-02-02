@@ -1,4 +1,4 @@
 DataEngineering::Application.routes.draw do
   root 'uploads#index'
-  get '/users/:id', :to => 'uploads#index', :as => :user
+  patch '/users/:id', :to => 'uploads#index', :as => :user
 end

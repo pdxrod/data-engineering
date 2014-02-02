@@ -7,9 +7,11 @@ class User < ActiveRecord::Base
 
   mount_uploader :uploader, FileUploader # Carrierwave
 
-  def calculate!
-    url = File.join( Rails.root, 'public', uploader.url )
-    contents = File.read( url )
+  def import!(contents: nil)
+    if contents.nil?
+      url = File.join( Rails.root, 'public', uploader.url )
+      contents = File.read( url )
+    end
 
     contents.each_line.with_index do |line, index|
       next if index == 0
@@ -23,6 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def User.total_amount_gross_revenue
+    return nil if Import.count < 1
     total = 0.0
     Import.all.each { |row| total += row.item_price * row.purchase_count }
     total
