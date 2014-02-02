@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: data-engineering_development
+  database: data_engineering_development
   pool: 5
   username: root
   password:
@@ -12,7 +12,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: data-engineering_test
+  database: data_engineering_test
   pool: 5
   username: root
   password:
@@ -22,9 +22,9 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: data-engineering_production
+  database: data_engineering_production
   pool: 5
-  username: data-engineering-user
+  username: data_engineering_user
   password: thisisnotit
   socket: /tmp/mysql.sock
   #host: localhost
