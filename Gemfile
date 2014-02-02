@@ -15,6 +15,7 @@ gem 'authlogic', '~> 3.2.0'
 gem 'carrierwave', '<= 1.0.0'
 
 group :test do
+  gem 'webrat', '~> 0.7.3'
   gem 'factory_girl', '~> 3.3.0'
   gem 'factory_girl_rails', '~> 3.3.0'
   gem 'rspec-rails', '~> 2.12.2'

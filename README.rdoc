@@ -6,6 +6,8 @@ or http://git-scm.com/download/mac for Mac. Then:
 $ git clone https://github.com/pdxrod/data-engineering 
 ; cd data-engineering
 ; bundle install
+; rake db:migrate
+; rake db:migrate RAILS_ENV=test
 ; rspec
 ; rails s &
 

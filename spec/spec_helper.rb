@@ -4,6 +4,13 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+require 'webrat'
+require 'webrat/core/matchers'
+include Webrat::Methods
+Webrat.configure do |config|
+  config.mode = :rails
+end
+
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"

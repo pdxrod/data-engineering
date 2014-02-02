@@ -25,7 +25,7 @@ describe User do
     expect( @user.uploader.identifier ).to eq( 'example_input.tab' )
   end
 
-  it "should save the contents of the file in the database" do
+  it "should save the contents of the file in the database and calculate the total" do
     expect( Import.count ).to eq(0)
     @user.uploader = File.open(file_path)
     @user.save!
