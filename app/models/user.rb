@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   end
 
   mount_uploader :uploader, FileUploader # Carrierwave
+
+  def calculate!
+  end
 end

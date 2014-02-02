@@ -12,6 +12,7 @@ describe User do
     if @user.nil?
       @user = User.new(email: user_email, :password => user_password, :password_confirmation => user_password)
     end
+    Import.delete_all
   end
 
   it "should upload a file" do
@@ -25,10 +26,18 @@ describe User do
   end
 
   it "should save the contents of the file in the database" do
+    expect( Import.count ).to eq(0)
     @user.uploader = File.open(file_path)
     @user.save!
     @user.calculate!
 
+    row = Import.last
+    expect( row.purchaser_name ).to eq("Snake Plissken")
+    expect( row.description ).to eq("$20 Sneakers for $5")
+    expect( row.item_price ).to eq(5.0)
+    expect( row.purchase_coint ).to eq(4)
+    expect( row.merchant_address ).to eq("123 Fake St")
+    expect( row.merchant_name ).to eq("Sneaker Store Emporium")
 
   end
 end
