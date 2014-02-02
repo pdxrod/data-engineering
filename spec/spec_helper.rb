@@ -15,3 +15,13 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 end
+
+
+def setup(email: nil, password: nil)
+  user = User.find_by_email(email)
+  if user.nil?
+    user = User.new(email: email, :password => password, :password_confirmation => password)
+  end
+  Import.delete_all
+  user
+end

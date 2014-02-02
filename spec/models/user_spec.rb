@@ -8,11 +8,7 @@ describe User do
   @user = nil
 
   before do
-    @user = User.find_by_email(user_email)
-    if @user.nil?
-      @user = User.new(email: user_email, :password => user_password, :password_confirmation => user_password)
-    end
-    Import.delete_all
+    @user = setup(email: user_email, password: user_password)
   end
 
   it "should upload a file" do

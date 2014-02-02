@@ -1,0 +1,7 @@
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+    <p>
+      <label>Find a file and upload it</label>
+      <%= f.file_field :uploader %>
+      <%= f.hidden_field :uploader_cache %>
+    </p>
+<% end %>
