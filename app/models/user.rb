@@ -7,11 +7,9 @@ class User < ActiveRecord::Base
 
   mount_uploader :uploader, FileUploader # Carrierwave
 
-  def import!(contents: nil)
-    if contents.nil?
-      url = File.join( Rails.root, 'public', uploader.url )
-      contents = File.read( url )
-    end
+  def import!
+    url = File.join( Rails.root, 'public', uploader.url )
+    contents = File.read( url )
 
     contents.each_line.with_index do |line, index|
       next if index == 0

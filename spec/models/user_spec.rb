@@ -37,6 +37,5 @@ describe User do
     expect( row.merchant_name ).to eq("Sneaker Store Emporium")
 
     expect( User.total_amount_gross_revenue ).to eq( 95.0 )
-
   end
 end

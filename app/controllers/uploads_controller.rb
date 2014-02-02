@@ -1,20 +1,20 @@
 class UploadsController < ApplicationController
 
   def index
-    if params[ :commit ] == 'Save'
+    Import.delete_all
+
+    if params[ :commit ] =~ /Save/
       @user = User.find(params[:id])
-      file = params[:user][:uploader]
-      contents = file.read
+      @user.uploader = params[:user][:uploader]
       @user.save!
-      @user.import!(contents: contents)
-      file.close
+      @user.import!
     else
-      Import.delete_all
       @user = User.first
       respond_to do |format|
         format.html
       end
     end
+
   end
 
 end

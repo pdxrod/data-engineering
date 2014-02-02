@@ -16,7 +16,6 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
-
 def setup(email: nil, password: nil)
   user = User.find_by_email(email)
   if user.nil?
